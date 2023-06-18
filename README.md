@@ -1,6 +1,6 @@
 # Firmware Research
 
-<img src="https://files.softicons.com/download/system-icons/windows-8-metro-icons-by-dakirby309/png/128x128/Applications/Command%20Prompt.png />
+<img src="https://files.softicons.com/download/system-icons/windows-8-metro-icons-by-dakirby309/png/128x128/Applications/Command%20Prompt.png" />
 
 Firmware Research is a command-line application that allows you to search for information on the web using the DuckDuckGo search engine.
 
