@@ -81,7 +81,7 @@ class Search:
     def search_firmware(self, model_name):
         query = f"site:androidhost.ru {model_name}"
         query_two = f"site:gsm-firmware.com {model_name}"
-        query_three = f"site:forum.xda-developers.com/search/thread {model_name}"
+        query_three = f"site:forum.xda-developers. com/search/thread {model_name}"
         query_four = f"site:romprovider.com {model_name}"
         return (
             self.search(query),
@@ -89,6 +89,15 @@ class Search:
             self.search(query_three),
             self.search(query_four)
         )
+
+ 
+    def search_gsi_for_android(self, query):
+        results = []
+        results.append(self.search(query, 'xda-developers.com'))
+        results.append(self.search(query, 'sourceforge.net'))
+        results.append(self.search(query, 'https://mirrors.lolinet.com/firmware/gsi/'))
+        results.append(self.search(query, 'https://github.com/phhusson/treble_experimentations/wiki/Generic-System-Image-%28GSI%29-list'))
+        return results
         
 
 if __name__ == "__main__":
@@ -97,6 +106,7 @@ if __name__ == "__main__":
     parser.add_argument("-keywords", help="Define keywords that will be used to search")
     parser.add_argument("---search", help="Search the stuff on the web", required=False)
     parser.add_argument("--firmware", help="Search for the specific firmware")
+    parser.add_argument("--gsi", help="Searches for the GSI for Android devices")
 
     args = parser.parse_args()
     print("""
@@ -128,4 +138,7 @@ ______                              _
         search.search(args.search, args.keywords)
     if args.firmware:
         search.search_firmware(args.firmware)
+    if args.gsi:
+        search.search_gsi_for_android(args.gsi)
+
 
